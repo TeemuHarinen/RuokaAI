@@ -1,14 +1,17 @@
 WIP (Work in progress)
 Bachelor's thesis & Full Stack Open project
 
-Tuntikirjanpito:
+
 # työaikakirjanpito
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
-| 18.2. | 3    | tutustuminen JavaFX:n |
-
-| yht   | 28   | | 
+| 6.2.  | 5    | Reacti frontti ja node bäkkäri alkuun |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+| yht   | 3   | | 
 
 
 Insert Diagram Here
