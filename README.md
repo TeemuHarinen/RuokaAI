@@ -11,7 +11,7 @@ Bachelor's thesis & Full Stack Open project
 |  |  |  |
 |  |  |  |
 |  |  |  |
-| yht   | 3   | | 
+| yht   | XX   |            | 
 
 
 Insert Diagram Here
