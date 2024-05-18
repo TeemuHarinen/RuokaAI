@@ -4,6 +4,7 @@ const logger = (req, res, next) => {
     console.log(`
       ${req.method} ${req.url} ${timestamp}
       req.body: ${JSON.stringify(req.body)}`);
+    next();
   } else {
   console.log(`
       ${req.method} ${req.url} ${timestamp}`); 
