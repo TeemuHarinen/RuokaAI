@@ -1,0 +1,1 @@
+Generate a food plan for a human that is 2000 calories, the food plan's calories can vary between 1900-2100. The food plan needs to have macros and calories listed for each meal. There needs to be exactly 4 meals: breakfast, lunch, dinner and evening meal. Prioritise high protein.Also include a total count of days calories and macros combined at the end. Answer in JSON.
