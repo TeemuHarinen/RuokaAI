@@ -75,42 +75,47 @@ const FoodPlanTable = ({ foodPlan, total }) => {
 };
 
 const Home = () => {
-    const [calories, setCalories] = useState('');
-    const [weightGoal, setWeightGoal] = useState('');
-    const [foodPlan, setFoodPlan] = useState(null);
+  const [calories, setCalories] = useState(0);
+  const [weightGoal, setWeightGoal] = useState('');
+  const [foodPlan, setFoodPlan] = useState(null);
 
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:3001/api/food-plan', { calories, weightGoal });
-            const parsedJson = JSON.parse(response.data.foodPlan);
-            console.log('parsedJson:', parsedJson);
-            setFoodPlan(parsedJson);
-        } catch (error) {
-            console.error('Error generating food plan:', error);
-        }
-    };
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+          const response = await axios.post('http://localhost:3001/api/food-plan', { calories, weightGoal });
+          const parsedJson = JSON.parse(response.data.foodPlan);
+          console.log('parsedJson:', parsedJson);
+          setFoodPlan(parsedJson);
+      } catch (error) {
+          console.error('Error generating food plan:', error);
+      }
+  };
 
-    return (
-        <div>
-            <h1>Food Plan Generator</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Calories:
-                    <input type="number" value={calories} onChange={(e) => setCalories(e.target.value)} required />
-                </label>
-                <br />
-                <label>
-                    Weight Goal:
-                    <input type="text" value={weightGoal} onChange={(e) => setWeightGoal(e.target.value)} required />
-                </label>
-                <br />
-                <button type="submit">Generate Food Plan</button>
-            </form>
-            {foodPlan && <FoodPlanTable foodPlan={foodPlan.food_plan} total={foodPlan.total} />}
-        </div>
-    );
+  return (
+      <div>
+          <form onSubmit={handleSubmit}>
+              <label>
+                  Calories:
+                  <input type="number" value={calories} onChange={(e) => setCalories(e.target.value)} required />
+              </label>
+              <br />
+              <label>
+                  Weight Goal:
+                  <label>
+                      <input type="radio" value="lose" checked={weightGoal === 'lose'} onChange={(e) => setWeightGoal(e.target.value)} required />
+                      Lose
+                  </label>
+                  <label>
+                      <input type="radio" value="gain" checked={weightGoal === 'gain'} onChange={(e) => setWeightGoal(e.target.value)} required />
+                      Gain
+                  </label>
+              </label>
+              <br />
+              <button type="submit">Generate Food Plan</button>
+          </form>
+          {foodPlan && <FoodPlanTable foodPlan={foodPlan.food_plan} total={foodPlan.total} />}
+      </div>
+  );
 };
 
 export default Home;
