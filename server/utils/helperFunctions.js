@@ -73,7 +73,6 @@ async function generateFoodPlan(calories, weightGoal) {
       temperature: 0.3,
       response_format: { type: "json_object" },
     });
-    console.log(completion.choices[0].message);
     const foodPlan = completion.choices[0].message.content;
 
     return foodPlan

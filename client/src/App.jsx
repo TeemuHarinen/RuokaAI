@@ -5,7 +5,6 @@ import './App.css'
 const App = () => {
   return (
     <>
-    <h2> Ruoka AI by Teemu Harinen </h2>
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
