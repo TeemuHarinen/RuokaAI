@@ -8,8 +8,8 @@ Bachelor's thesis & Full Stack Open project
 | :----:|:-----| :-----|
 | 6.2.  | 5    | Reacti frontti ja node bäkkäri alkuun |
 | 7.2.  | 2    | Projektin suunnittelua + diagrammi |  
-|  |  |  |
-|  |  |  |
+| 18.5  | 4    | ChatGPT API:n tutkimista ja rajapinnan kokeilua |
+| 20.5  | 3    | API tietojen välitys clientille ja niiden taulukointi |
 |  |  |  |
 | yht   | XX   |            | 
 
