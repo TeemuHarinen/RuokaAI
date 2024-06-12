@@ -16,8 +16,8 @@ app.get("/", function (req, res) {
 
 app.post("/api/food-plan", async (req, res, next) => {
   try {
-    const { calories, weightGoal } = req.body;
-    const foodPlan = await generateFoodPlan(calories, weightGoal);
+    const { calories, weightGoal, allergens } = req.body;
+    const foodPlan = await generateFoodPlan(calories, weightGoal, allergens);
     res.json({ message: 'Food plan generated successfully', foodPlan: foodPlan });
   } catch (error) {
     console.error(error);
