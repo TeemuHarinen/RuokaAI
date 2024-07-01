@@ -11,6 +11,7 @@ Bachelor's thesis & Full Stack Open project
 | 18.5  | 4    | ChatGPT API:n tutkimista ja rajapinnan kokeilua |
 | 20.5  | 3    | API tietojen välitys clientille ja niiden taulukointi |
 | 11.6  | 10   | UI suunnittelua, CSS pyörittelyä ja BMR kalorilaskennan toteutus |
+| 12.6  | 5    | Allergeeni featuren frontti ja backend implementaatio |
 | yht   | XX   |            | 
 
 ## diagram of basic functionality
