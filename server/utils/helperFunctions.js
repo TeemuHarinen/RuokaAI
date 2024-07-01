@@ -1,5 +1,4 @@
 // helperFunctions.js
-
 const OpenAI = require('openai');
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
@@ -19,9 +18,9 @@ async function generateFoodPlan(calories, weightGoal, allergens) {
         {
           role: "user",
           content: `Generate a food plan for a human that is ${adjustedCalories} calories and is allergic to ${allergensString}. The food plan needs to have macros and calories listed for each meal.
-          There needs to be exactly 4 meals: breakfast, lunch, dinner and evening meal.
-          Prioritise high protein. Also include a total count of days calories and macros combined at the end.
-          Answer in only JSON. Follow this JSON structure: {
+          Each meal needs to have ingredients and short instructions. There needs to be exactly 4 meals: breakfast, lunch, dinner and evening meal.
+          Prioritise high protein. Prioritize recipes commonly eaten in Finland. Dont specify "Finnish" in the response meal name. Also include a total count of days calories and macros combined at the end.
+          JSON field values should be in Finnish. Answer in only JSON. Follow this JSON structure: {
             "food_plan": {
               "breakfast": {
                 "meal": "",
@@ -30,7 +29,9 @@ async function generateFoodPlan(calories, weightGoal, allergens) {
                   "protein": "",
                   "carbs": "",
                   "fat": ""
-                }
+                },
+                "ingredients": "",
+                "instructions": ""
               },
               "lunch": {
                 "meal": "",
@@ -39,7 +40,9 @@ async function generateFoodPlan(calories, weightGoal, allergens) {
                   "protein": "",
                   "carbs": "",
                   "fat": ""
-                }
+                },
+                ingredients: "",
+                instructions: ""
               },
               "dinner": {
                 "meal": "",
@@ -48,7 +51,9 @@ async function generateFoodPlan(calories, weightGoal, allergens) {
                   "protein": "",
                   "carbs": "",
                   "fat": ""
-                }
+                },
+                ingredients: "",
+                instructions: ""
               },
               "evening_meal": {
                 "meal": "",
@@ -57,7 +62,9 @@ async function generateFoodPlan(calories, weightGoal, allergens) {
                   "protein": "",
                   "carbs": "",
                   "fat": ""
-                }
+                },
+                ingredients: "",
+                instructions: ""
               }
             },
             "total": {
@@ -68,7 +75,7 @@ async function generateFoodPlan(calories, weightGoal, allergens) {
                 "fat": ""
               }
             }
-          }`,
+          } AT THE END MAKE SURE THE CALORIES AND MACROS ADD UP TO THE TOTALS. AND MAKE SURE INGREDIDIENT AMOUNTS MATCH THE CALORIES AND MACROS.`,
         },
       ],
       model: "gpt-4o",
@@ -76,7 +83,7 @@ async function generateFoodPlan(calories, weightGoal, allergens) {
       response_format: { type: "json_object" },
     });
     const foodPlan = completion.choices[0].message.content;
-
+    console.log('foodPlan:', foodPlan);
     return foodPlan
   } catch (error) {
     console.error('Error generating food plan:', error);
